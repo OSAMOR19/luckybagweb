@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import luckylogo from "@/components/images/luckylogo.svg"
 
 const carouselData = [
   {
@@ -39,8 +40,7 @@ export function OnboardingCarousel() {
   return (
     <div className="flex flex-col items-center justify-center text-center">
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">LuckyBag 🎲</h2>
-
+        <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6"><Image src={luckylogo} alt="LuckyBag Logo" width={200} height={200} className="mx-auto" /></h2>
         <div className="relative w-[400px] h-[300px] mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -72,10 +72,10 @@ export function OnboardingCarousel() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
               {carouselData[currentSlide].title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">{carouselData[currentSlide].description}</p>
+            <p className="text-muted-foreground dark:text-gray-400">{carouselData[currentSlide].description}</p>
           </motion.div>
         </AnimatePresence>
 
